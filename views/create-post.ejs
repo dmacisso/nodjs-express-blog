@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('includes/head.ejs') %>
+
+  <body>
+    <%- include('includes/header.ejs') %>
+
+    <main>
+      <!-- submit to  a URL -->
+      <form action="/create-post" method="POST">
+        <!-- iterate over the errors array in js -->
+        <% errors.forEach( error => { %>
+
+        <!-- this allows you to escape and output text -->
+        <p class="notice"><%= error %></p>
+
+        <%} ) %>
+
+        <fieldset>
+          <legend>Create Post</legend>
+          <label for="title"><small>Title</small></label>
+          <input type="text" id="title" name="title" autocomplete="off" />
+
+          <label for="body"><small>Content</small></label>
+          <textarea name="body" id="body"></textarea>
+          <br />
+          <button>Create New Post</button>
+        </fieldset>
+      </form>
+    </main>
+    <%- include('includes/footer.ejs') %>
+  </body>
+</html>

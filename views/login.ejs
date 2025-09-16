@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('includes/head.ejs') %>
+
+  <body>
+    <%- include('includes/header.ejs') %>
+
+    <main>
+      <!-- submit to  a URL -->
+      <form action="/login" method="POST">
+        <!-- iterate over the errors array in js -->
+        <% errors.forEach( error => { %>
+
+        <!-- this allows you to escape and output text -->
+        <p class="notice"><%= error %></p>
+
+        <%} ) %>
+
+        <fieldset>
+          <legend>Log In</legend>
+          <label for="username"><small>Username</small></label>
+          <input type="text" name="username" autocomplete="off" id="username" />
+
+          <label for="password"><small>Password</small></label>
+          <input
+            type="password"
+            name="password"
+            autocomplete="off"
+            id="password"
+          />
+          <br />
+          <button>Log In</button>
+        </fieldset>
+      </form>
+    </main>
+    <%- include('includes/footer.ejs') %>
+  </body>
+</html>
